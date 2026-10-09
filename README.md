@@ -1,29 +1,30 @@
 # فولاد گهرزمین — Corporate Website
 
-Next.js App Router, TypeScript. Development is staged and committed section-by-section.
+Next.js App Router / TypeScript. Section-by-section implementation with separate commits.
 
-## Development
+## Run locally
+
 ```bash
 npm install
 npm run dev
 npm run build
 ```
 
-## Design palette
+## Brand
 - Navy: `#293B84`
 - Red: `#EE2535`
-- Steel / iron gray: `#818994`
-- RTL and mobile-first responsive behavior.
+- Iron-gray: `#818994`
+- RTL and responsive design
 
-## Implemented sections
-01. **Header:** sticky two-level navigation and looping corporate links.
-02. **Hero:** laptop-first compact layout; image treatment and key company facts.
-03. **Quick-access cards:** production, quality & standards, sponge iron, tenders. Four columns on desktop, two on tablet, one on mobile. Focus, hover and reduced-motion handling included.
+## Page sections
+1. Header: two-tier nav, looping corporate links, sticky behavior.
+2. Hero: responsive industrial hero and company facts.
+3. Quick access: four cards for production, standards, sponge iron, tenders.
+4. Sponge iron: editorial composition, section number 03, product copy, diagonal clipped macro photo, CTA. Component is `components/SpongeIronSection.tsx`.
 
-The four quick-access cards link to their planned routes (`/production`, `/quality-and-standards`, `/products`, `/tenders`). **Those detail pages will be implemented in later stages.** Do not treat the targets as completed.
+## Client assets (still required)
+- Hero original: `public/hero/gohar-factory-original.jpg`; until provided, uses prior small AVIF preview.
+- Sponge iron photograph: **place the exact client image** at `public/sections/sponge-iron.webp`, using a full-quality export from the supplied 1672×941 original. This binary asset has not yet been committed. The section markup and styling are ready but the image won't render until the file exists.
+- IRANSans fonts are commercial: when licensed font files are available, add `IRANSans-Regular.woff2`, `IRANSans-Medium.woff2`, `IRANSans-Bold.woff2` under `public/fonts/`.
 
-## Outstanding client assets
-- The full-resolution client-supplied hero photograph should be placed at `public/hero/gohar-factory-original.jpg` (the smaller AVIF is a fallback until the binary is uploaded).
-- IRANSans is a licensed font. Once you have properly licensed files, add `IRANSans-Regular.woff2`, `IRANSans-Medium.woff2`, `IRANSans-Bold.woff2` to `public/fonts`. Styles are prepared; current fallback is Vazirmatn.
-
-Site is intentionally `noindex` during development.
+Product details route `/products` is planned, not yet implemented. All development pages remain `noindex` until launch.
