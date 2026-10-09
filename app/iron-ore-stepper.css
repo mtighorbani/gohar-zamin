@@ -1,194 +1,215 @@
-/* Rail and ore-textured section edge, scoped to the homepage only. */
-body:has(.ore-stepper){--ore-rail-width:54px;padding-left:var(--ore-rail-width)}
-body:has(.ore-stepper) .hero,
+/* Minimal ore-pellet section navigation — no full-height sidebar or panel.
+   The textured edge appears ONLY under the hero and in section 01 (About). */
+
+/* The mineral pattern is decorative and never changes the page's layout width. */
 body:has(.ore-stepper) .quick-access,
-body:has(.ore-stepper) .about-showcase,
-body:has(.ore-stepper) .notices,
-body:has(.ore-stepper) .sponge-section,
-body:has(.ore-stepper) .certificates-section,
-body:has(.ore-stepper) .news-showcase,
-body:has(.ore-stepper) .why-gohar-section{
-  scroll-margin-top:75px;
-}
-body:has(.ore-stepper) .quick-access,
-body:has(.ore-stepper) .about-showcase,
-body:has(.ore-stepper) .notices,
-body:has(.ore-stepper) .sponge-section,
-body:has(.ore-stepper) .certificates-section,
-body:has(.ore-stepper) .news-showcase,
-body:has(.ore-stepper) .why-gohar-section{
+body:has(.ore-stepper) .about-showcase {
   background-image:url("/brand/ore-edge-pattern.svg");
-  background-repeat:repeat-y;
-  background-size:108px 640px;
   background-position:left top;
+  background-size:108px 640px;
+  background-repeat:repeat-y;
 }
-body:has(.ore-stepper) .gz-footer{scroll-margin-top:0}
-.ore-stepper{
-  --ore-center:27px;
+
+/* Remove the previous generic dot overlays from these two sections so
+   the light gray ore pattern is the single visual treatment on the left. */
+body:has(.ore-stepper) .quick-access::after,
+body:has(.ore-stepper) .about-showcase::after,
+body:has(.ore-stepper) .notices::after {
+  display:none;
+}
+
+/* Keep navigation anchors clear of the sticky main header. */
+body:has(.ore-stepper) #home-hero,
+body:has(.ore-stepper) #quick-access,
+body:has(.ore-stepper) #about-company,
+body:has(.ore-stepper) #tenders,
+body:has(.ore-stepper) #sponge-iron,
+body:has(.ore-stepper) #certificates,
+body:has(.ore-stepper) #company-news,
+body:has(.ore-stepper) #why-gohar {
+  scroll-margin-top:76px;
+}
+
+/* Floating compact rail positioned at viewport RIGHT, optically centered. */
+.ore-stepper {
   position:fixed;
-  z-index:160;
-  left:0;top:0;bottom:0;
-  height:100dvh;
-  width:54px;
-  background:
-    linear-gradient(148deg,#273a4a66,transparent 34%,#17253099),
-    #192834;
-  color:#e5ebf1;
-  border-right:1px solid #ffffff36;
+  z-index:110;
+  right:clamp(6px,1.1vw,18px);
+  top:50%;
+  transform:translateY(-50%);
+  width:26px;
+  height:clamp(226px,40vh,296px);
+  margin:0;
+  padding:0;
+  direction:ltr;
+  color:#64748b;
+  background:none;
+  border:0;
+  box-shadow:none;
+  pointer-events:none;
+}
+
+.ore-stepper__track {
+  height:100%;
+  position:relative;
+  width:100%;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:12px 0 14px;
-  direction:ltr;
-  isolation:isolate;
-  box-shadow:3px 0 11px #1423331d;
 }
-.ore-stepper:before{
-  content:"";
+
+.ore-stepper__line,
+.ore-stepper__line-fill {
   position:absolute;
-  z-index:-1;
-  inset:0;
-  opacity:.2;
-  background-image:repeating-linear-gradient(-35deg,transparent 0 30px,#a0afb92c 30px 31px,transparent 31px 62px);
+  left:calc(50% - .7px);
+  top:11px;
+  bottom:11px;
+  width:1.4px;
+  border-radius:6px;
   pointer-events:none;
 }
-.ore-stepper__top-label,.ore-stepper__bottom-label{
-  font-size:10px;
-  font-weight:650;
-  color:#d4dce5;
-  white-space:nowrap;
-  line-height:1.6;
-  direction:rtl;
+.ore-stepper__line {
+  background:rgba(84,99,119,.64);
+  box-shadow:1px 0 1px rgba(255,255,255,.75),0 0 3px rgba(11,23,40,.2);
 }
-.ore-stepper__track{
-  flex:1;
-  width:100%;
-  min-height:0;
-  position:relative;
-  margin:12px 0;
-  display:flex;
-  flex-direction:column;
-}
-.ore-stepper__line,.ore-stepper__line-fill{
-  position:absolute;
-  pointer-events:none;
-  left:calc(var(--ore-center) - 1px);
-  top:17px;bottom:17px;
-  width:2px;
-  border-radius:4px;
-  background:linear-gradient(to bottom,#a9b4bd99,#e0e6eddb 40%,#84919e8c);
-}
-.ore-stepper__line-fill{
+.ore-stepper__line-fill {
   bottom:auto;
   height:var(--ore-progress);
-  max-height:calc(100% - 34px);
-  background:linear-gradient(to bottom,#dc6571,#ed4556);
-  box-shadow:0 0 9px #ef52648c;
+  max-height:calc(100% - 22px);
+  background:linear-gradient(to bottom,#ee4c5e,#ac334a);
+  box-shadow:0 0 3px rgba(238,37,53,.32);
 }
-.ore-stepper__list{
-  position:relative;z-index:1;
+
+.ore-stepper__list {
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  list-style:none;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   align-items:center;
-  flex:1;
-  margin:0;padding:0;
-  list-style:none;
-  min-height:0;
-  width:100%;
 }
-.ore-stepper__item{display:flex;justify-content:center;align-items:center;min-height:26px;width:100%}
-.ore-stepper__link{
-  width:40px;
-  min-height:32px;
+
+.ore-stepper__item {
+  width:100%;
+  min-height:23px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.ore-stepper__link {
   display:grid;
   place-items:center;
+  width:26px;
+  height:26px;
   position:relative;
+  border-radius:50%;
   text-decoration:none;
+  pointer-events:auto;
   -webkit-tap-highlight-color:transparent;
-  border-radius:16px;
 }
-.ore-stepper__link:focus-visible{outline:2px solid #fff;outline-offset:1px}
-.ore-stepper__stone{
+.ore-stepper__link:focus-visible {
+  outline:2px solid #293b84;
+  outline-offset:1px;
+}
+
+/* Real product photograph supplies the uneven metallic-pellet texture. */
+.ore-stepper__stone {
   display:block;
-  width:15px;height:15px;
-  border-radius:47% 53% 49% 51%;
-  border:1px solid #c4cbd29c;
+  width:11px;
+  height:11px;
+  border-radius:46% 54% 49% 51%;
+  border:1px solid rgba(227,231,236,.86);
   background-image:
-    radial-gradient(circle at 29% 25%,#ffffff82,transparent 34%),
-    linear-gradient(135deg,#bac0c7a8,#27344470),
+    radial-gradient(circle at 22% 18%,rgba(255,255,255,.58),transparent 49%),
+    linear-gradient(135deg,rgba(181,188,199,.45),rgba(33,42,56,.32)),
     url("/sections/sponge-iron.webp");
-  background-size:cover,cover,135px 80px;
-  background-position:center,center,35% 40%;
-  box-shadow:inset 1px 1px 3px #ffffff5a,inset -2px -2px 4px #111c2780,0 2px 5px #050d18a8;
-  filter:grayscale(.8);
-  transform:rotate(-9deg);
-  transition:box-shadow .24s ease,transform .24s ease,width .24s ease,height .24s ease,filter .24s ease;
+  background-size:cover,cover,128px 75px;
+  background-position:center,center,32% 42%;
+  box-shadow:inset 1px 1px 2px #ffffff90,inset -1px -1px 2px #27364688,
+    0 1px 3px rgba(6,16,28,.45);
+  filter:grayscale(.75);
+  transform:rotate(-7deg);
+  transition:transform .22s ease,filter .22s ease,box-shadow .22s ease,width .22s ease,height .22s ease;
 }
-.ore-stepper__item:nth-child(2n) .ore-stepper__stone{background-position:center,center,70% 65%;transform:rotate(12deg)}
-.ore-stepper__item:nth-child(3n) .ore-stepper__stone{background-position:center,center,12% 90%;transform:rotate(-17deg)}
+.ore-stepper__item:nth-child(2n) .ore-stepper__stone {
+  background-position:center,center,70% 65%;
+  transform:rotate(10deg);
+}
+.ore-stepper__item:nth-child(3n) .ore-stepper__stone {
+  background-position:center,center,14% 85%;
+  transform:rotate(-12deg);
+}
 .ore-stepper__link:hover .ore-stepper__stone,
-.ore-stepper__link:focus-visible .ore-stepper__stone{
-  transform:scale(1.17);filter:grayscale(.1);border-color:#f3f5f8;
+.ore-stepper__link:focus-visible .ore-stepper__stone {
+  transform:scale(1.23);
+  filter:grayscale(.15);
 }
-.ore-stepper__link.is-active .ore-stepper__stone{
-  width:19px;height:19px;
-  filter:grayscale(.18);
-  border:2px solid #fff4e5;
-  box-shadow:inset 1px 2px 4px #fff6,inset -2px -2px 4px #142133ab,0 0 0 3px #b64b3b,0 0 14px 3px #f35e48bd;
+.ore-stepper__link.is-active .ore-stepper__stone {
+  width:15px;
+  height:15px;
+  filter:grayscale(.2);
+  border:1.5px solid #fff;
+  box-shadow:inset 1px 1px 2px #ffffff9c,inset -1px -1px 2px #1f2b3d90,
+    0 0 0 2px #be3e4f,0 0 7px 2px #d43e5160;
 }
-.ore-stepper__tooltip{
+
+/* Tooltips open to the LEFT, not outside the right edge of the viewport. */
+.ore-stepper__tooltip {
   position:absolute;
   pointer-events:none;
-  left:calc(100% + 7px);
+  right:calc(100% + 9px);
   top:50%;
-  transform:translate(-5px,-50%);
   opacity:0;
+  transform:translate(4px,-50%);
   white-space:nowrap;
-  min-width:max-content;
-  padding:6px 11px;
+  padding:6px 10px;
   border-radius:5px;
-  background:#172a40;
-  box-shadow:0 5px 17px #17243a30;
-  border:1px solid #d5dfe642;
-  font-size:11px;
-  font-weight:700;
+  background:rgba(23,39,59,.94);
   color:#fff;
+  box-shadow:0 4px 14px rgba(18,32,48,.2);
+  font-size:11px;
+  font-weight:650;
+  line-height:1.6;
   direction:rtl;
-  transition:transform .2s,opacity .2s;
+  transition:opacity .17s ease,transform .17s ease;
 }
 .ore-stepper__link:hover .ore-stepper__tooltip,
-.ore-stepper__link:focus-visible .ore-stepper__tooltip{
-  transform:translate(0,-50%);
+.ore-stepper__link:focus-visible .ore-stepper__tooltip {
   opacity:1;
+  transform:translate(0,-50%);
 }
-@media(max-height:610px){
-  .ore-stepper{padding-top:7px;padding-bottom:8px}
-  .ore-stepper__track{margin:5px 0}
-  .ore-stepper__item{min-height:22px}
-  .ore-stepper__link{min-height:25px}
-  .ore-stepper__stone{width:12px;height:12px}
-  .ore-stepper__link.is-active .ore-stepper__stone{width:15px;height:15px}
-  .ore-stepper__line,.ore-stepper__line-fill{top:13px;bottom:13px}
-}
-@media(max-width:760px){
-  body:has(.ore-stepper){--ore-rail-width:35px}
-  .ore-stepper{width:35px;--ore-center:17.5px}
-  .ore-stepper__top-label,.ore-stepper__bottom-label{font-size:8px}
-  .ore-stepper__track{margin:9px 0}
-  .ore-stepper__link{width:32px;min-height:30px}
-  .ore-stepper__stone{width:12px;height:12px}
-  .ore-stepper__link.is-active .ore-stepper__stone{width:15px;height:15px}
+
+@media (max-width:760px) {
+  .ore-stepper {
+    right:4px;
+    width:23px;
+    height:220px;
+  }
+  .ore-stepper__link {
+    width:23px;
+    height:23px;
+  }
+  .ore-stepper__stone{width:9px;height:9px}
+  .ore-stepper__link.is-active .ore-stepper__stone{width:13px;height:13px}
   .ore-stepper__tooltip{display:none}
   body:has(.ore-stepper) .quick-access,
-  body:has(.ore-stepper) .about-showcase,
-  body:has(.ore-stepper) .notices,
-  body:has(.ore-stepper) .sponge-section,
-  body:has(.ore-stepper) .certificates-section,
-  body:has(.ore-stepper) .news-showcase,
-  body:has(.ore-stepper) .why-gohar-section{background-size:66px 390px}
+  body:has(.ore-stepper) .about-showcase {
+    background-size:70px 415px;
+  }
 }
-@media(prefers-reduced-motion:reduce){
+@media (max-height:550px) {
+  .ore-stepper{height:min(220px,76dvh)}
+  .ore-stepper__item{min-height:19px}
+  .ore-stepper__link{height:21px}
+}
+
+@media (prefers-reduced-motion:reduce) {
   .ore-stepper__stone,.ore-stepper__tooltip{transition:none}
-  .ore-stepper__link:hover .ore-stepper__stone,.ore-stepper__link:focus-visible .ore-stepper__stone{transform:none}
+  .ore-stepper__link:hover .ore-stepper__stone,
+  .ore-stepper__link:focus-visible .ore-stepper__stone{transform:none}
 }

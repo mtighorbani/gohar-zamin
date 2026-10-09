@@ -63,7 +63,6 @@ export function IronOreStepper() {
   const progressStyle = {"--ore-progress": `${progress}%`} as CSSProperties;
   return (
     <nav className="ore-stepper" aria-label="پیمایش مرحله‌ای بخش‌های صفحه اصلی">
-      <span className="ore-stepper__top-label" aria-hidden="true">شروع</span>
       <div className="ore-stepper__track" style={progressStyle}>
         <span className="ore-stepper__line" aria-hidden="true"/>
         <span className="ore-stepper__line-fill" aria-hidden="true"/>
@@ -80,7 +79,6 @@ export function IronOreStepper() {
           ))}
         </ol>
       </div>
-      <span className="ore-stepper__bottom-label" aria-hidden="true">پایان</span>
     </nav>
   );
 }

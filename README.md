@@ -47,3 +47,7 @@ Commit and file presence verified via GitHub. Responsive layout, browser interac
 ## Homepage navigation refinement
 
 The About and procurement sections have been reordered: **01 About, 02 Notices**. An ore-pellet scroll rail and softly patterned left edge appear only on the home page. See `docs/iron-ore-navigation-qa.md` for the section map, behavior and testing checklist.
+
+## 2026-10 — Minimal ore navigation adjustment
+
+The ore-edge graphic is now **only** on the LEFT of Quick Access (directly under Hero) and the LEFT of Section **01 About Gohar Zamin**. The old pellet-like dot decoration on Notices has been suppressed. The former dark, full-viewport LEFT rail was replaced with a **compact transparent floating RIGHT stepper** at viewport center; no global body padding or reserved content width. It retains nine ore-textured clickable dots, scroll-active status, fine progress line and keyboard focus. This adjustment is home-only; other routes are unaffected.
