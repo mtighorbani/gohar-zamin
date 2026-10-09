@@ -14,7 +14,7 @@ const highlights = [
 export function Hero() {
   // The full-resolution client-supplied photograph lives at the path below.
   // While it is being transferred, fall back to the previously committed asset.
-  const [photo, setPhoto] = useState("/hero/gohar-factory-original.jpg");
+  const [photo, setPhoto] = useState("/hero/gohar-factory.jpg");
 
   return (
     <section id="home-hero" className="hero" aria-labelledby="hero-title">
