@@ -10,6 +10,25 @@ body:has(.ore-stepper) .about-showcase {
   background-repeat:repeat-y;
 }
 
+/* At the end of Section 01, gently dissolve the ore stones into the
+   following section's near-white surface. The gradient is behind content:
+   it fades only the background pattern and never affects text or images. */
+body:has(.ore-stepper) .about-showcase {
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 34%,
+      rgba(248,249,251,.18) 52%,
+      rgba(248,249,251,.62) 73%,
+      #f9fafc 100%
+    ),
+    url("/brand/ore-edge-pattern.svg");
+  background-position:center top,left top;
+  background-size:100% 100%,108px 640px;
+  background-repeat:no-repeat,repeat-y;
+}
+
 /* Remove the previous generic dot overlays from these two sections so
    the light gray ore pattern is the single visual treatment on the left. */
 body:has(.ore-stepper) .quick-access::after,
@@ -197,9 +216,11 @@ body:has(.ore-stepper) #why-gohar {
   .ore-stepper__stone{width:9px;height:9px}
   .ore-stepper__link.is-active .ore-stepper__stone{width:13px;height:13px}
   .ore-stepper__tooltip{display:none}
-  body:has(.ore-stepper) .quick-access,
-  body:has(.ore-stepper) .about-showcase {
+  body:has(.ore-stepper) .quick-access {
     background-size:70px 415px;
+  }
+  body:has(.ore-stepper) .about-showcase {
+    background-size:100% 100%,70px 415px;
   }
 }
 @media (max-height:550px) {
