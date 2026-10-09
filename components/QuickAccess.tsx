@@ -47,7 +47,7 @@ const links = [
 
 export function QuickAccess() {
   return (
-    <section className="quick-access" aria-label="دسترسی سریع به بخش‌های مهم فولاد گهرزمین">
+    <section id="quick-access" className="quick-access" aria-label="دسترسی سریع به بخش‌های مهم فولاد گهرزمین">
       <div className="quick-access__container">
         <nav className="quick-access__grid" aria-label="دسترسی سریع">
           {links.map(({ title, subtitle, href, icon: Icon }) => (

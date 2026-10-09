@@ -43,3 +43,7 @@ npm run build
 
 ## QA
 Commit and file presence verified via GitHub. Responsive layout, browser interactions and `npm run build` require runtime testing. Do not mark these completed without running the tests.
+
+## Homepage navigation refinement
+
+The About and procurement sections have been reordered: **01 About, 02 Notices**. An ore-pellet scroll rail and softly patterned left edge appear only on the home page. See `docs/iron-ore-navigation-qa.md` for the section map, behavior and testing checklist.

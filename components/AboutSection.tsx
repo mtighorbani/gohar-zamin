@@ -31,7 +31,7 @@ export function AboutSection() {
     <section className="about-showcase" aria-labelledby="about-showcase-title" id="about-company">
       <div className="about-showcase__inner">
         <div className="about-showcase__copy">
-          <span className="about-showcase__number" aria-hidden="true">02</span>
+          <span className="about-showcase__number" aria-hidden="true">01</span>
           <div className="about-showcase__text">
             <p className="about-showcase__eyebrow">نگاهی به فولاد گهرزمین</p>
             <h2 id="about-showcase-title">درباره گهرزمین</h2>

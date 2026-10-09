@@ -17,7 +17,7 @@ export function Hero() {
   const [photo, setPhoto] = useState("/hero/gohar-factory-original.jpg");
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section id="home-hero" className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
         <Image
           src={photo}

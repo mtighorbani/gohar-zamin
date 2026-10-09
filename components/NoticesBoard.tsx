@@ -109,7 +109,7 @@ export function NoticesBoard({ archive = false }: { archive?: boolean }) {
       <div className="notices__container">
         <div className="notices__heading">
           <div className="notices__heading-main">
-            <span className="notices__number" aria-hidden="true">01</span>
+            <span className="notices__number" aria-hidden="true">02</span>
             <div>
               {archive && <span className="notices__eyebrow">مرکز اطلاعات تأمین و معاملات</span>}
               <h2 id="notices-title">مناقصات، مزایدات و فراخوان‌ها</h2>
