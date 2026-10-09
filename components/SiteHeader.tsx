@@ -23,7 +23,7 @@ export function SiteHeader(){
    <nav className="ticker" aria-label="پیوندهای سازمانی"><div className="ticker-track">
     {[0,1].map(copy=><ul key={copy} className="ticker-group" aria-hidden={copy===1}>
      {utilityLinks.map((item,i)=><li key={item.href} className="ticker-item">
-      {copy===0?<Link className={i===0?"ticker-link featured":"ticker-link"} href={item.href}>{item.label}</Link>:<span className={i===0?"ticker-link featured":"ticker-link"}>{item.label}</span>}
+      {copy===0?<Link className="ticker-link" href={item.href}>{item.label}</Link>:<span className="ticker-link">{item.label}</span>}
      </li>)}
     </ul>)}
    </div></nav><Cloud size={18} aria-hidden="true"/></div></div>
