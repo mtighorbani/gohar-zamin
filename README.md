@@ -42,3 +42,18 @@ Before a public production release:
 
 ## QA
 See `docs/notices-qa.md` for acceptance criteria and manual test cases. Build/browser validation needs to be run in the application environment.
+
+## About company 02
+
+The about-company module is rendered after the procurement notices 01 and before sponge iron 03. It mirrors the product section: **text and section number on the RIGHT; factory image and play action on the LEFT**. The module is responsive, maintains the established 8px inter-section gap, and uses the logo palette.
+
+- `components/AboutSection.tsx` — editorial introduction, authentic factory image already tracked in `public/hero/gohar-factory.avif`, video dialog and CTA.
+- `app/about-showcase.css` — photo on left (including mirrored diagonal crop), restrained typography and accessible visual interactions.
+- `app/about/page.tsx` — working About route with the company's verified details.
+- `docs/about-qa.md` — visual and interaction test cases.
+
+### Video behavior and photo quality
+
+No official film has been supplied. The play button displays a truthful availability dialog, not an empty video. When a verified video is ready, configure `NEXT_PUBLIC_GOHAR_INTRO_VIDEO_URL` as a direct playable video URL and rebuild.
+
+The About image intentionally reuses the existing committed factory photograph so the section does not have a missing-image error; its visual quality is limited by the previously optimized AVIF preview. For production, replace that asset with a high-resolution approved plant photo. The photos supplied in the conversation are available for that future replacement.
