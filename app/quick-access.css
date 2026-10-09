@@ -1,0 +1,175 @@
+/* Section 03 — quick-access. Four compact cards matching the approved RTL mockup. */
+.quick-access{
+  position:relative;
+  isolation:isolate;
+  background:#f5f7f9;
+  overflow:hidden;
+  padding:14px 0 25px;
+  border-bottom:1px solid #e6eaf0;
+}
+.quick-access::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:
+    repeating-linear-gradient(45deg,transparent 0 15px,rgba(38,58,82,.036) 15px 16px,transparent 16px 32px),
+    repeating-linear-gradient(-45deg,transparent 0 15px,rgba(38,58,82,.026) 15px 16px,transparent 16px 32px);
+  opacity:.58;
+  pointer-events:none;
+}
+.quick-access::after{
+  content:"";
+  position:absolute;
+  inset-inline-end:-54px;
+  top:-25px;
+  width:min(270px,22vw);
+  height:calc(100% + 75px);
+  z-index:-1;
+  background:radial-gradient(circle at center,rgba(88,99,114,.23) 0 4px,transparent 5px) 0 0/17px 17px;
+  mask-image:linear-gradient(to left,#000,transparent);
+  opacity:.26;
+  pointer-events:none;
+}
+.quick-access__container{
+  width:100%;
+  max-width:1500px;
+  margin-inline:auto;
+  padding-inline:clamp(20px,5vw,75px);
+}
+.quick-access__grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(12px,1.8vw,22px);
+}
+.quick-access__card{
+  position:relative;
+  display:flex;
+  direction:rtl;
+  align-items:center;
+  gap:clamp(8px,1.12vw,14px);
+  min-height:97px;
+  padding:16px clamp(13px,1.55vw,20px) 20px;
+  border:1px solid #e5eaf0;
+  border-radius:10px;
+  background:rgba(255,255,255,.89);
+  box-shadow:0 4px 18px rgba(23,42,65,.035);
+  color:#202b3c;
+  text-decoration:none;
+  overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background-color .22s ease;
+}
+.quick-access__card::before{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;
+  top:18%;
+  bottom:18%;
+  width:2px;
+  background:linear-gradient(to bottom,#293b84,#ee2535);
+  opacity:0;
+  transform:scaleY(.45);
+  transition:opacity .22s ease,transform .22s ease;
+}
+.quick-access__card:hover,.quick-access__card:focus-visible{
+  transform:translateY(-3px);
+  border-color:#d0d9e6;
+  background:#fff;
+  box-shadow:0 12px 24px rgba(23,42,65,.09);
+}
+.quick-access__card:hover::before,.quick-access__card:focus-visible::before{
+  opacity:1;
+  transform:scaleY(1);
+}
+.quick-access__card:focus-visible{
+  outline:2px solid #293b84;
+  outline-offset:2px;
+}
+.quick-access__icon{
+  color:#bd3746;
+  flex:0 0 46px;
+  display:grid;
+  place-items:center;
+  transition:color .22s ease,transform .22s ease;
+}
+.quick-access__icon>svg{
+  display:block;
+  width:40px;
+  height:40px;
+  stroke-width:1.6;
+}
+.quick-access__card:hover .quick-access__icon,.quick-access__card:focus-visible .quick-access__icon{
+  color:#293b84;
+  transform:translateY(-2px);
+}
+.quick-access__pellets{width:43px!important;height:43px!important}
+.quick-access__copy{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  align-items:center;
+  gap:3px;
+  padding-inline-end:11px;
+}
+.quick-access__title{
+  display:block;
+  font-size:clamp(12px,1.12vw,16px);
+  line-height:1.7;
+  font-weight:800;
+  color:#15243b;
+  white-space:nowrap;
+}
+.quick-access__subtitle{
+  display:block;
+  font-size:clamp(10px,.91vw,12px);
+  line-height:1.75;
+  font-weight:500;
+  color:#747f91;
+  white-space:nowrap;
+}
+.quick-access__more{
+  position:absolute;
+  inset-inline-end:15px;
+  bottom:11px;
+  display:grid;
+  place-items:center;
+  color:#51617b;
+  transition:color .22s ease,transform .22s ease;
+}
+.quick-access__card:hover .quick-access__more,.quick-access__card:focus-visible .quick-access__more{
+  color:#ee2535;
+  transform:rotate(90deg);
+}
+@media(max-width:1190px){
+  .quick-access__grid{gap:12px}
+  .quick-access__card{padding-inline:12px;gap:8px}
+  .quick-access__icon{flex-basis:37px}
+  .quick-access__icon>svg{width:35px;height:35px}
+  .quick-access__pellets{width:37px!important;height:37px!important}
+  .quick-access__copy{padding-inline-end:7px}
+}
+@media(max-width:960px){
+  .quick-access{padding:17px 0 23px}
+  .quick-access__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .quick-access__card{min-height:99px;padding:15px 18px 18px}
+  .quick-access__title{font-size:15px}
+  .quick-access__subtitle{font-size:11px}
+  .quick-access__icon{flex-basis:44px}
+  .quick-access__icon>svg{width:40px;height:40px}
+}
+@media(max-width:510px){
+  .quick-access__container{padding-inline:16px}
+  .quick-access__grid{grid-template-columns:1fr;gap:10px}
+  .quick-access__card{min-height:85px;padding:12px 18px 14px}
+  .quick-access__copy{align-items:flex-start;text-align:right;padding-inline:0}
+  .quick-access__title{font-size:14px}
+  .quick-access__subtitle{font-size:11px}
+  .quick-access__icon{flex-basis:44px}
+  .quick-access__more{bottom:12px;inset-inline-end:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .quick-access__card,.quick-access__card::before,.quick-access__icon,.quick-access__more{transition:none}
+  .quick-access__card:hover,.quick-access__card:focus-visible{transform:none}
+}
