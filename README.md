@@ -1,59 +1,45 @@
 # فولاد گهرزمین — Corporate Website
 
-Next.js App Router / TypeScript. Section-by-section implementation with independent commits.
+Next.js App Router + TypeScript. Implementation delivered section-by-section with GitHub commits.
 
-## Local development
-
+## Start
 ```bash
 npm install
 npm run dev
 npm run build
 ```
 
-## Brand
-- Navy: `#293B84`
-- Red: `#EE2535`
-- Iron-gray: `#818994`
-- RTL and responsive layout
-- Licensed IRANSans fonts may be added under `public/fonts`; Vazirmatn is the current fallback.
+## Brand colors
+- Navy `#293B84`
+- Red `#EE2535`
+- Industrial gray `#818994`
+- RTL responsive layout. IRANSans font faces are configured; licensed fonts still need to be added to `public/fonts/`. Until then Vazirmatn fallback is used.
 
-## Implemented home sections
-1. Header: sticky two-level navigation, looping corporate links and mobile navigation.
-2. Hero: responsive factory image treatment and company facts.
-3. Quick access: production, quality and standards, sponge iron, tenders.
-4. **Notices 01**: `components/NoticesBoard.tsx` + `app/notices.css`. Search, type filters, publication/deadline sorting, colored status labels, accessible details dialog and a separate `/tenders` archive with status filter and pagination. Mobile cards replace the desktop table.
-5. Sponge iron 03: editorial product showcase with a client product photograph.
+## Homepage structure
+- Two-tier animated header (site-wide)
+- Cinematic industrial hero
+- Four quick-access cards
+- 01 — Procurement notices: search, filters, sort, detail dialogs, and /tenders archive
+- 02 — About Gohar Zamin, mirrored image/text layout
+- 03 — Sponge iron product introduction
+- **04 — Certificates and standards**: ISO 9001/14001/45001 visual category cards and evidence-status dialogs
+- **05 — News and editorial content**: rotating featured story, three selectable cards, director introduction, full /news and /news/[slug] routes
+- **06 — Why Gohar Zamin**: five industrial value propositions
+- Shared Footer — in the root layout, so it renders consistently across all routes
 
-### CRITICAL: procurement notices are demonstration data
-The twelve sample records in `data/notices.ts` are **NOT verified company notices**. Their subjects, dates, statuses and reference numbers are invented solely to test the UX and are visibly marked as samples on both homepage and `/tenders`. They **must not** be treated as real active procurements.
+## Client-supplied visuals
+- `/news/ceo.avif` — actual CEO portrait cropped from user-supplied photo
+- `/news/factory-feature.avif` — factory panorama graded and resized from user-supplied aerial image
+- `/news/factory-small.avif` — compact shot of user-supplied steel facilities
+- `/sections/sponge-iron.webp` — user-supplied product photo
+- Hero still defaults to the previously committed compressed AVIF preview. The high-resolution original remains a separate future upgrade.
 
-Before a public production release:
-- Connect this module to an authorized CMS/procurement data source.
-- Map the verified API response to the `Notice` type and remove `demoNotices`.
-- Provide authorized attachments as `{ title, url }`. The current details dialog correctly says no attachments are available; it does not fake downloads.
-- Verify date/timezone conventions, archive policy, statuses, search, authorization and real download links.
-- Add server-side pagination and filtering if the dataset becomes large.
-- Remove `noindex` only when the site and live procurement records are approved.
-
-## Pending client assets
-- Hero original: `public/hero/gohar-factory-original.jpg` should contain the original image (currently falls back to compressed AVIF).
-- Sponge iron product: `public/sections/sponge-iron.webp`.
-- Licensed IRANSans font files under `public/fonts` as described above.
+## Important publication rules
+- The ISO cards display **standard categories**, not evidence that the company holds verified certificates. They have no fake documents; genuine signed files and expiry data are required.
+- News items are **editorial introductions** rather than real press releases or dated events. The CEO biography/name should only be completed after corporate confirmation.
+- The 12 notices under `/tenders` are explicitly labeled demonstration data. An official CMS/API must replace them before publication.
+- No invented email or social accounts are linked in the footer.
+- `noindex` remains enabled while site content is being approved.
 
 ## QA
-See `docs/notices-qa.md` for acceptance criteria and manual test cases. Build/browser validation needs to be run in the application environment.
-
-## About company 02
-
-The about-company module is rendered after the procurement notices 01 and before sponge iron 03. It mirrors the product section: **text and section number on the RIGHT; factory image and play action on the LEFT**. The module is responsive, maintains the established 8px inter-section gap, and uses the logo palette.
-
-- `components/AboutSection.tsx` — editorial introduction, authentic factory image already tracked in `public/hero/gohar-factory.avif`, video dialog and CTA.
-- `app/about-showcase.css` — photo on left (including mirrored diagonal crop), restrained typography and accessible visual interactions.
-- `app/about/page.tsx` — working About route with the company's verified details.
-- `docs/about-qa.md` — visual and interaction test cases.
-
-### Video behavior and photo quality
-
-No official film has been supplied. The play button displays a truthful availability dialog, not an empty video. When a verified video is ready, configure `NEXT_PUBLIC_GOHAR_INTRO_VIDEO_URL` as a direct playable video URL and rebuild.
-
-The About image intentionally reuses the existing committed factory photograph so the section does not have a missing-image error; its visual quality is limited by the previously optimized AVIF preview. For production, replace that asset with a high-resolution approved plant photo. The photos supplied in the conversation are available for that future replacement.
+Commit and file presence verified via GitHub. Responsive layout, browser interactions and `npm run build` require runtime testing. Do not mark these completed without running the tests.

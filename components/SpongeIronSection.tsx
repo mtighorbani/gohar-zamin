@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
  */
 export function SpongeIronSection() {
   return (
-    <section className="sponge-section" aria-labelledby="sponge-section-title">
+    <section className="sponge-section" id="sponge-iron" aria-labelledby="sponge-section-title">
       <div className="sponge-section__inner">
         <div className="sponge-section__copy">
           <span className="sponge-section__number" aria-hidden="true">03</span>
