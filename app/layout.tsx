@@ -12,7 +12,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
-      <body id="top">
+      {/* Some browser extensions inject attributes such as cz-shortcut-listen
+          into <body> before React hydrates. Suppress only this element-level
+          mismatch, without masking hydration errors in page components. */}
+      <body id="top" suppressHydrationWarning>
         {children}
         <SiteFooter />
       </body>
