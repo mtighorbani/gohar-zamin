@@ -3,6 +3,7 @@
   --sponge-blue:#293b84;
   --sponge-red:#ee2535;
   --sponge-iron:#858e9a;
+  margin-block-start:8px;
   position:relative;
   isolation:isolate;
   overflow:hidden;

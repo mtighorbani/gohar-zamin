@@ -1,5 +1,6 @@
 /* Section 03 — quick-access. Four compact cards matching the approved RTL mockup. */
 .quick-access{
+  margin-block-start:8px;
   position:relative;
   isolation:isolate;
   background:#f5f7f9;

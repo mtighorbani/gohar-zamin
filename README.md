@@ -24,7 +24,10 @@ npm run build
 
 ## Client assets (still required)
 - Hero original: `public/hero/gohar-factory-original.jpg`; until provided, uses prior small AVIF preview.
-- Sponge iron photograph: **place the exact client image** at `public/sections/sponge-iron.webp`, using a full-quality export from the supplied 1672×941 original. This binary asset has not yet been committed. The section markup and styling are ready but the image won't render until the file exists.
+- Sponge iron photograph: bundled at `public/sections/sponge-iron.webp` from the client-supplied photograph (960×540, visually optimized for the short showcase).
 - IRANSans fonts are commercial: when licensed font files are available, add `IRANSans-Regular.woff2`, `IRANSans-Medium.woff2`, `IRANSans-Bold.woff2` under `public/fonts/`.
 
 Product details route `/products` is planned, not yet implemented. All development pages remain `noindex` until launch.
+
+## Spacing
+An 8px breathing gap separates Hero and Quick Access, and Quick Access and Sponge Iron on all breakpoints.
