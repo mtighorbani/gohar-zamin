@@ -32,7 +32,7 @@ function available(name: string): boolean {
 
 export default function Home(){
  const hasVideoPoster = available("gohar-hero-poster.webp");
- const hasHeroVideo = available("gohar-hero-720.mp4") && available("gohar-hero-1080.mp4");
+ const hasHeroVideo = available("gohar-factory-new.mp4");
  return <>
    <SiteHeader/>
    <main id="main-content">

@@ -12,7 +12,13 @@ const highlights = [
   { label: "رویکرد مجموعه", value: "کیفیت و توسعه پایدار", Icon: ShieldCheck },
 ];
 
-export function Hero({ posterAvailable, videoAvailable }: { posterAvailable: boolean; videoAvailable: boolean }) {
+export function Hero({
+  posterAvailable,
+  videoAvailable,
+}: {
+  posterAvailable: boolean;
+  videoAvailable: boolean;
+}) {
   // The server chooses an existing poster. Avoid repeated 404 requests for
   // assets that have not been installed from the media bundle yet.
   const [imageFailed, setImageFailed] = useState(false);
