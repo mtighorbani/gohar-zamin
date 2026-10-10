@@ -49,7 +49,7 @@ export function AboutSection() {
 
         <div className="about-showcase__visual">
           <Image
-            src="/hero/gohar-factory.avif"
+            src="/hero/gohar-factory-new.avif"
             alt="نمای هوایی از تجهیزات و تأسیسات کارخانه فولاد گهرزمین"
             fill
             sizes="(max-width: 720px) 100vw, (max-width: 1100px) 60vw, 58vw"

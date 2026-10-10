@@ -74,7 +74,7 @@
 .why-gohar-item h3{font-size:clamp(12px,1.08vw,16px);font-weight:800;line-height:1.55;margin:0;color:#1c2c45}
 .why-gohar-item p{max-width:210px;margin:0;color:#738297;font-size:clamp(10px,.88vw,12px);line-height:1.8}
 .gz-footer{position:relative;isolation:isolate;margin-block-start:8px;background:#142339;color:#eaf1fb;overflow:hidden}
-.gz-footer__background{position:absolute;inset:0;z-index:-2;background:linear-gradient(to right,#152439ed,#142339ed),url("/hero/gohar-factory.avif") center /cover}
+.gz-footer__background{position:absolute;inset:0;z-index:-2;background:linear-gradient(to right,#152439ed,#142339ed),url("/news/factory-feature.avif") center /cover}
 .gz-footer__line{position:absolute;inset:0;z-index:-1;background:linear-gradient(117deg,transparent 37%,#ffffff23 37.1%,transparent 37.2%),linear-gradient(117deg,transparent 83%,#ef334634 83.1%,transparent 83.2%);pointer-events:none}
 .gz-footer:before,.gz-footer:after{content:"";position:absolute;z-index:-1;width:150px;height:180px;border:solid #ed2e43;opacity:.75;pointer-events:none;transform:rotate(38deg)}
 .gz-footer:before{right:-120px;top:-120px;border-width:0 0 6px 6px}.gz-footer:after{left:-130px;bottom:-145px;border-width:6px 6px 0 0}
