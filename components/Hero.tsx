@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowLeft, Factory, MapPin, ShieldCheck } from "lucide-react";
+import { HeroBackgroundVideo } from "./HeroBackgroundVideo";
 
 const highlights = [
   { label: "محصول اصلی", value: "آهن اسفنجی", Icon: Factory },
@@ -12,9 +13,9 @@ const highlights = [
 ];
 
 export function Hero() {
-  // The full-resolution client-supplied photograph lives at the path below.
-  // While it is being transferred, fall back to the previously committed asset.
-  const [photo, setPhoto] = useState("/hero/gohar-factory-new.jpg");
+  // A small poster painted by Next/Image is the LCP element; it stays visible
+  // on slow connections, reduced-motion devices or when videos cannot play.
+  const [photo, setPhoto] = useState("/hero/gohar-hero-poster.webp");
 
   return (
     <section id="home-hero" className="hero" aria-labelledby="hero-title">
@@ -28,10 +29,11 @@ export function Hero() {
           alt=""
           fill
           priority
-          unoptimized
           sizes="100vw"
+          quality={78}
           className="hero__photo"
         />
+        <HeroBackgroundVideo />
       </div>
       <div className="hero__shade" aria-hidden="true" />
       <div className="hero__line hero__line--one" aria-hidden="true" />
