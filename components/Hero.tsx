@@ -53,7 +53,7 @@ export function Hero({
             شرکت فولاد گهرزمین
           </p>
           <h1 id="hero-title" className="hero__title">
-            <span>در قلب صنعت،</span>
+            <span>فولاد گوهر </span>
             <strong>در مسیر آینده فولاد ایران</strong>
           </h1>
           <p className="hero__description">
