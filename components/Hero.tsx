@@ -15,13 +15,13 @@ const highlights = [
 export function Hero() {
   // A small poster painted by Next/Image is the LCP element; it stays visible
   // on slow connections, reduced-motion devices or when videos cannot play.
-  const [photo, setPhoto] = useState("/hero/gohar-hero-poster.webp");
+  const [photo, setPhoto] = useState<string | null>("/hero/gohar-hero-poster.webp");
   const [posterReady, setPosterReady] = useState(false);
 
   return (
     <section id="home-hero" className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
-        <Image
+        {photo && <Image
           src={photo}
           onLoad={() => {
             // The video is mounted only when its matching optimized poster exists.
@@ -29,16 +29,19 @@ export function Hero() {
           }}
           onError={() => {
             setPosterReady(false);
-            if (photo !== "/hero/gohar-factory-new.avif")
-              setPhoto("/hero/gohar-factory-new.avif");
+            // If the video bundle is not installed yet, use the committed factory
+            // image. If both are absent locally, render the CSS background instead
+            // of retrying broken image URLs.
+            setPhoto((current) => current === "/hero/gohar-hero-poster.webp"
+              ? "/hero/gohar-factory-new.avif"
+              : null);
           }}
           alt=""
           fill
           priority
           sizes="100vw"
-          quality={78}
           className="hero__photo"
-        />
+        />}
         {posterReady && <HeroBackgroundVideo />}
       </div>
       <div className="hero__shade" aria-hidden="true" />

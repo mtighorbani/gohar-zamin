@@ -29,3 +29,28 @@ The React/CSS code is pushed. Until the files are extracted and pushed, HeroBack
 - [ ] Test Save-Data, reduced-motion and off-screen pause; expected: no video download on constrained clients.
 - [ ] Browser check: no broken media, no hydration errors, no horizontal overflow, keyboard still works.
 - [ ] Review color grading and cropping with the text to ensure contrast and product focus.
+
+## Fix for local 404s after pulling code
+
+`git pull` updates the React/CSS code **but does not install the chat-attached ZIP**.
+The poster and MP4 files are missing until the ZIP is extracted into the root of the local repo.
+
+From PowerShell in `C:\\Users\\Mehdi\\Desktop\\gohar-zamin`:
+
+```powershell
+# Adjust the ZIP path to wherever you saved it:
+Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\gohar-hero-video-ready.zip" -DestinationPath "." -Force
+npm run assets:check
+npm run dev
+```
+
+Verify the files exist with `dir public\hero`. The exact names must match the component.
+
+### Other warning cleanup
+
+- `quality={78}` was removed from the optimized poster; Next/Image uses its configured default quality.
+- Missing licensed IRANSans `@font-face` declarations were disabled until the real font files are supplied, so they no longer trigger repeated 404 requests. Current readable fallback: Vazirmatn.
+- The Hero uses the poster, then the previously committed factory AVIF, then CSS background, in that order. There is no infinite failed-image retry.
+- If the committed `public/hero/gohar-factory-new.avif` is missing locally despite being tracked, run `git status --short` and `git restore public/hero/gohar-factory-new.avif`.
+
+After the ZIP is installed successfully, commit the three video assets with `git add public/hero/gohar-hero-*.mp4 public/hero/gohar-hero-poster.webp` and `git push` so other checkouts deploy without manual attachment transfer.

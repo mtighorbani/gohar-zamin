@@ -4,10 +4,6 @@
 @media(max-width:1150px){.main-nav ul{gap:12px}.main-nav a{font-size:11px}.brand strong{font-size:14px}.brand img{width:45px;height:45px}}@media(max-width:1000px){.main-nav{display:none}.mobile-btn{display:flex}.header-inner{min-height:72px}.mobile-navigation{display:grid;position:absolute;left:0;right:0;max-height:75vh;overflow:auto;background:white;padding:14px 6% 25px;box-shadow:0 15px 32px #1a25332b}.mobile-navigation strong{padding:12px 6px;color:var(--navy);font-size:13px}.mobile-navigation a{padding:12px 8px;border-bottom:1px solid #ecf0f3;font-size:13px}}@media(max-width:500px){.ticker-shell{padding:0}.header-inner{padding:0 12px;min-height:66px;gap:6px}.brand{gap:5px}.brand img{width:39px;height:39px}.brand strong{font-size:11px}.brand small{font-size:7px}.header-tools{gap:0}.language{min-width:45px;padding:0 3px}.language svg:first-child{display:none}.icon-btn{min-width:38px}.coming p{font-size:12px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}.ticker{overflow-x:auto;mask-image:none}.ticker-track{animation:none}.ticker-group[aria-hidden=true]{display:none}}
 
-/* IRANSans is a commercial font. Once licensed font assets have been added
-   under /public/fonts, these faces activate automatically. Until then, Vazirmatn
-   remains the accessible fallback. Never redistribute unlicensed font binaries. */
-@font-face{font-family:"IRANSans";src:url("/fonts/IRANSans-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"IRANSans";src:url("/fonts/IRANSans-Medium.woff2") format("woff2");font-weight:500 600;font-style:normal;font-display:swap}
-@font-face{font-family:"IRANSans";src:url("/fonts/IRANSans-Bold.woff2") format("woff2");font-weight:700 900;font-style:normal;font-display:swap}
-body{font-family:"IRANSans","Vazirmatn",Tahoma,sans-serif}
+/* IRANSans requires separately licensed font files. None are currently present
+   in public/fonts; do not declare missing @font-face URLs (they produce 404s).
+   Vazirmatn is the active fallback until real font files are supplied. */
