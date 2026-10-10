@@ -54,7 +54,7 @@ export function Hero({
           </p>
           <h1 id="hero-title" className="hero__title">
             <span>فولاد گوهر </span>
-            <strong>در مسیر آینده فولاد ایران</strong>
+            <strong>ستون فقرات فولاد ایران</strong>
           </h1>
           <p className="hero__description">
             فولاد گهرزمین با تمرکز بر تولید آهن اسفنجی، کیفیت محصول و توسعه
