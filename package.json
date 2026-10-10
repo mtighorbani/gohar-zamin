@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "assets:check": "node scripts/check-hero-assets.mjs"
+    "assets:check": "node scripts/check-hero-assets.mjs",
+    "assets:install:win": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/install-hero-assets.ps1"
   },
   "dependencies": {
     "next": "^15.5.0",

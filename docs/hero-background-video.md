@@ -54,3 +54,24 @@ Verify the files exist with `dir public\hero`. The exact names must match the co
 - If the committed `public/hero/gohar-factory-new.avif` is missing locally despite being tracked, run `git status --short` and `git restore public/hero/gohar-factory-new.avif`.
 
 After the ZIP is installed successfully, commit the three video assets with `git add public/hero/gohar-hero-*.mp4 public/hero/gohar-hero-poster.webp` and `git push` so other checkouts deploy without manual attachment transfer.
+
+## One-command Windows installation (October 2026)
+
+After **downloading** the ZIP from the chat into Windows Downloads, pull this code and run:
+
+```powershell
+git pull origin main
+npm run assets:install:win
+npm run assets:check
+npm run dev
+```
+
+The installer in `scripts/install-hero-assets.ps1` finds the ZIP in Downloads or the repo root and extracts it under `public/hero/`. You may pass an alternate path:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-hero-assets.ps1 -ZipPath "C:\path\to\gohar-hero-video-ready.zip"
+```
+
+Hero asset presence is checked in `app/page.tsx` during server render/build; no broken WebP resource is requested when poster is missing, and the video is not mounted when MP4 files are absent. When all assets are present, the MP4 plays over the static LCP poster on appropriate networks. Restart `npm run dev` after extracting the ZIP. For production deployments, commit the three binary media assets and rebuild; GitHub code-only commits do not contain them.
+
+NOTE: The identical 8-second client-supplied AVI has already been transcoded to the optimized MP4s within the ZIP. There is no need to upload the 20 MiB original AVI to the repo.

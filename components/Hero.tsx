@@ -12,37 +12,29 @@ const highlights = [
   { label: "رویکرد مجموعه", value: "کیفیت و توسعه پایدار", Icon: ShieldCheck },
 ];
 
-export function Hero() {
-  // A small poster painted by Next/Image is the LCP element; it stays visible
-  // on slow connections, reduced-motion devices or when videos cannot play.
-  const [photo, setPhoto] = useState<string | null>("/hero/gohar-hero-poster.webp");
-  const [posterReady, setPosterReady] = useState(false);
+export function Hero({ posterAvailable, videoAvailable }: { posterAvailable: boolean; videoAvailable: boolean }) {
+  // The server chooses an existing poster. Avoid repeated 404 requests for
+  // assets that have not been installed from the media bundle yet.
+  const [imageFailed, setImageFailed] = useState(false);
+  const poster = posterAvailable
+    ? "/hero/gohar-hero-poster.webp"
+    : "/hero/gohar-factory-new.avif";
 
   return (
     <section id="home-hero" className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
-        {photo && <Image
-          src={photo}
-          onLoad={() => {
-            // The video is mounted only when its matching optimized poster exists.
-            if (photo === "/hero/gohar-hero-poster.webp") setPosterReady(true);
-          }}
-          onError={() => {
-            setPosterReady(false);
-            // If the video bundle is not installed yet, use the committed factory
-            // image. If both are absent locally, render the CSS background instead
-            // of retrying broken image URLs.
-            setPhoto((current) => current === "/hero/gohar-hero-poster.webp"
-              ? "/hero/gohar-factory-new.avif"
-              : null);
-          }}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="hero__photo"
-        />}
-        {posterReady && <HeroBackgroundVideo />}
+        {!imageFailed && (
+          <Image
+            src={poster}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero__photo"
+            onError={() => setImageFailed(true)}
+          />
+        )}
+        {videoAvailable && <HeroBackgroundVideo />}
       </div>
       <div className="hero__shade" aria-hidden="true" />
       <div className="hero__line hero__line--one" aria-hidden="true" />
