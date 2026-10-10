@@ -16,13 +16,19 @@ export function Hero() {
   // A small poster painted by Next/Image is the LCP element; it stays visible
   // on slow connections, reduced-motion devices or when videos cannot play.
   const [photo, setPhoto] = useState("/hero/gohar-hero-poster.webp");
+  const [posterReady, setPosterReady] = useState(false);
 
   return (
     <section id="home-hero" className="hero" aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
         <Image
           src={photo}
+          onLoad={() => {
+            // The video is mounted only when its matching optimized poster exists.
+            if (photo === "/hero/gohar-hero-poster.webp") setPosterReady(true);
+          }}
           onError={() => {
+            setPosterReady(false);
             if (photo !== "/hero/gohar-factory-new.avif")
               setPhoto("/hero/gohar-factory-new.avif");
           }}
@@ -33,7 +39,7 @@ export function Hero() {
           quality={78}
           className="hero__photo"
         />
-        <HeroBackgroundVideo />
+        {posterReady && <HeroBackgroundVideo />}
       </div>
       <div className="hero__shade" aria-hidden="true" />
       <div className="hero__line hero__line--one" aria-hidden="true" />
